@@ -2,23 +2,38 @@
 int size = Convert.ToInt32(Console.ReadLine());
 
 int[] array = new int[size];
-for (int i = 0; i < size; i++)
+
+int[] FillArray(int[] arr)
 {
-    Console.Write($"Введите число номер {i+1}: ");
-    array[i] = Convert.ToInt32(Console.ReadLine());
+    for (int i = 0; i < size; i++)
+    {
+        Console.Write($"Введите число номер {i + 1}: ");
+        array[i] = Convert.ToInt32(Console.ReadLine());
+    }
+    return array;
 }
 
-int CountPositiveNumbers (int[] arr)
+void PrintArray (int[] arr) 
+{
+    for (int i = 0; i < arr.Length; i++)
+    {
+        Console.Write($"{arr[i]} ");
+    }
+}
+
+int CountPositiveNumbers(int[] arr)
 {
     int count = 0;
     for (int i = 0; i < arr.Length; i++)
     {
         if (arr[i] > 0)
         {
-         count++;  
+            count++;
         }
     }
     return count;
 }
 
-Console.WriteLine(CountPositiveNumbers(array));
+int[] arr = FillArray(array);
+PrintArray(arr);
+CountPositiveNumbers(arr);
