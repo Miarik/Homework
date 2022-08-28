@@ -1,33 +1,28 @@
-﻿Console.WriteLine("Введите значения переменных для прямой по формуле ax+by+c=0");
-Console.Write("Введите значение a для первой прямой: ");
-int a1 = Convert.ToInt32(Console.ReadLine());
+﻿// Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями
+// y = k1 * x + b1
+// y = k2 * x + b2
+Console.WriteLine("Поиск точки пересечения двух прямых, заданных формулой: y = k * x + b");
 
-Console.Write("Введите значение b для первой прямой: ");
-int b1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите значение К для первой прямой: ");
+double k1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите значение В для первой прямой: ");
+double b1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите значение К для второй прямой: ");
+double k2 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите значение В для второй прямой: ");
+double b2 = Convert.ToDouble(Console.ReadLine());
 
-Console.Write("Введите значение a для второй прямой: ");
-int a2 = Convert.ToInt32(Console.ReadLine());
-
-Console.Write("Введите значение a для второй прямой: ");
-int b2 = Convert.ToInt32(Console.ReadLine());
-
-
-void LineCrossing(int a1, int b1, int a2, int b2)
+string PointIntersectionLine(double k1, double b1, double k2, double b2)
 {
-    double x = (a2/b2-a1/b1);
-    Console.WriteLine(x);
-    double y = (a1*x)/b1;
-    Console.WriteLine(y);
-    Console.WriteLine($"{x}; {y}");
+    if(k1 == k2)
+    {
+        return "Решения не существует";
     }
+    else{
+    double x = Convert.ToDouble((b1 - b2) / (k2 - k1));
+    double y = Convert.ToDouble(k1 * x + b1);
+    return $"Точка пересечения прямых: {x}; {y}";
+    }
+}
 
-// void PrintArray(double[] arr)
-// {
-//     for (int i = 0; i < arr.Length; i++)
-//     {
-//         Console.Write($"{arr[i]}; ");
-//     }
-// }
-
-// Console.Write("Координаты пересечения прямых ");
-// PrintArray(LineCrossing(a1,b1,a2,b2));
+Console.WriteLine(PointIntersectionLine(k1, b1, k2, b2));

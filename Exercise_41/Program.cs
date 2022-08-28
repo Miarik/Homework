@@ -35,5 +35,4 @@ int CountPositiveNumbers(int[] arr)
 }
 
 int[] arr = FillArray(array);
-PrintArray(arr);
-CountPositiveNumbers(arr);
+Console.WriteLine(CountPositiveNumbers(arr));
